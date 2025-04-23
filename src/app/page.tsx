@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
     Card,
@@ -9,7 +10,6 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
     Upload,
-    File,
     Vault,
     ImageIcon,
     FileText,
@@ -25,16 +25,18 @@ const fileGridStyles = "grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8"
 
 export default function Home() {
     return (
-        <div className="flex min-h-screen w-full flex-col">
+        <div className="flex min-h-screen w-full flex-col bg-slate-50">
             <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
                 <div className="flex items-center gap-2 font-semibold">
                     <Vault className="h-6 w-6" />
                     <span>LockBox</span>
                 </div>
                 <div className="ml-auto flex items-center gap-4">
-                    <Button variant="outline" size="sm">
-                        Sign out
-                    </Button>
+                    <Link href="/login" passHref>
+                        <Button variant="outline" size="sm">
+                            Login
+                        </Button>
+                    </Link>
                     <Button
                         size="icon"
                         variant="ghost"

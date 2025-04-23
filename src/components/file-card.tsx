@@ -49,7 +49,7 @@ export function FileCard({ name, size, type, modified }: FileCardProps) {
     const getPreview = () => {
         if (type === "image") {
             return (
-                <div className="relative aspect-square w-full overflow-hidden rounded-t-lg">
+                <div className="relative aspect-square w-full overflow-hidden rounded-t-lg mt-0">
                     <img
                         src="/placeholder.svg?height=100&width=100"
                         alt={name}
@@ -60,14 +60,14 @@ export function FileCard({ name, size, type, modified }: FileCardProps) {
         }
 
         return (
-            <div className="flex aspect-square w-full items-center justify-center rounded-t-lg bg-muted">
+            <div className="flex aspect-square w-full items-center justify-center rounded-t-lg bg-muted mt-0">
                 {getIcon()}
             </div>
         );
     };
 
     return (
-        <Card className="overflow-hidden">
+        <Card className="flex justify-end overflow-hidden max-w-[200px] max-h-[300px] aspect-[2/3]">
             {getPreview()}
             <CardContent className="p-3">
                 <div className="space-y-1">
