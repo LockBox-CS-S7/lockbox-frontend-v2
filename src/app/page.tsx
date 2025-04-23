@@ -82,9 +82,11 @@ export default function Home() {
                         <CardHeader>
                             <div className="flex items-center justify-between">
                                 <CardTitle>Recent Files</CardTitle>
-                                <Button variant="ghost" size="sm">
-                                    View All
-                                </Button>
+                                <Link href="/files" passHref>
+                                    <Button variant="ghost" size="sm">
+                                        View All
+                                    </Button>
+                                </Link>
                             </div>
                         </CardHeader>
                         <CardContent>
