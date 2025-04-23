@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
     Upload,
     File,
+    Vault,
     ImageIcon,
     FileText,
     Plus,
@@ -17,22 +18,22 @@ import {
     Star,
 } from "lucide-react";
 import { FileCard } from "@/components/file-card";
-import { UploadDropzone } from "@/components/upload-dropzone";
 import { StorageStats } from "@/components/storage-stats";
 import { FileUpload } from "@/components/file-upload";
+
+const fileGridStyles = "grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8";
 
 export default function Home() {
     return (
         <div className="flex min-h-screen w-full flex-col">
             <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
-                P{" "}
                 <div className="flex items-center gap-2 font-semibold">
-                    <File className="h-6 w-6" />
-                    <span>FileVault</span>
+                    <Vault className="h-6 w-6" />
+                    <span>LockBox</span>
                 </div>
                 <div className="ml-auto flex items-center gap-4">
                     <Button variant="outline" size="sm">
-                        Upgrade Plan
+                        Sign out
                     </Button>
                     <Button
                         size="icon"
@@ -71,7 +72,6 @@ export default function Home() {
                             </Button>
                         </CardHeader>
                         <CardContent>
-                            {/* <UploadDropzone /> */}
                             <FileUpload/>
                         </CardContent>
                     </Card>
@@ -100,7 +100,7 @@ export default function Home() {
                                     </TabsTrigger>
                                 </TabsList>
                                 <TabsContent value="all" className="mt-2">
-                                    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                                    <div className={fileGridStyles}>
                                         <FileCard
                                             name="Project Proposal.pdf"
                                             size="2.4 MB"
@@ -140,7 +140,7 @@ export default function Home() {
                                     </div>
                                 </TabsContent>
                                 <TabsContent value="images" className="mt-2">
-                                    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                                    <div className={fileGridStyles}>
                                         <FileCard
                                             name="Profile Photo.jpg"
                                             size="4.2 MB"
@@ -156,7 +156,7 @@ export default function Home() {
                                     </div>
                                 </TabsContent>
                                 <TabsContent value="docs" className="mt-2">
-                                    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                                    <div className={fileGridStyles}>
                                         <FileCard
                                             name="Project Proposal.pdf"
                                             size="2.4 MB"
@@ -172,7 +172,7 @@ export default function Home() {
                                     </div>
                                 </TabsContent>
                                 <TabsContent value="other" className="mt-2">
-                                    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                                    <div className={fileGridStyles}>
                                         <FileCard
                                             name="Budget 2023.xlsx"
                                             size="1.8 MB"
