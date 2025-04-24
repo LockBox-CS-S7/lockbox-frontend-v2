@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
     Card,
@@ -19,11 +22,14 @@ import {
 } from "lucide-react";
 import { FileCard } from "@/components/file-card";
 import { StorageStats } from "@/components/storage-stats";
-import { FileUpload } from "@/components/file-upload";
+import { FileUpload, FileItem } from "@/components/file-upload";
 
 const fileGridStyles = "grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8";
 
 export default function Home() {
+    
+    const [uploadedFiles, setUploadedFiles] = useState<FileItem[]>([])
+    
     return (
         <div className="flex min-h-screen w-full flex-col bg-slate-50">
             <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
@@ -74,7 +80,7 @@ export default function Home() {
                             </Button>
                         </CardHeader>
                         <CardContent>
-                            <FileUpload/>
+                            <FileUpload files={uploadedFiles} setFiles={setUploadedFiles}/>
                         </CardContent>
                     </Card>
 

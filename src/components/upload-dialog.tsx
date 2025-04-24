@@ -13,7 +13,7 @@ interface UploadDialogProps {
 }
 
 export default function UploadDialog({ open, onOpenChange }: UploadDialogProps) {
-  const [files, setFiles] = useState<FileItem[]>([])
+  const [files, setFiles] = useState<FileItem[]>([]);
 
   const handleUpload = async () => {
     if (files.length === 0) return

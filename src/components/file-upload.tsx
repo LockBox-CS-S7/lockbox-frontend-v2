@@ -24,7 +24,6 @@ interface FileUploadProps {
 }
 
 export function FileUpload({ files, setFiles }: FileUploadProps) {
-    // const [files, setFiles] = useState<FileItem[]>([]);
     const [isDragging, setIsDragging] = useState(false);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
