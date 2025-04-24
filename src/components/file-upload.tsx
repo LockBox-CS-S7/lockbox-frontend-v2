@@ -10,7 +10,7 @@ import { toast } from "sonner";
 
 type FileStatus = "idle" | "uploading" | "success" | "error";
 
-interface FileItem {
+export interface FileItem {
     file: File;
     id: string;
     progress: number;
@@ -18,8 +18,13 @@ interface FileItem {
     previewUrl?: string;
 }
 
-export function FileUpload() {
-    const [files, setFiles] = useState<FileItem[]>([]);
+interface FileUploadProps {
+    files: FileItem[];
+    setFiles: React.Dispatch<React.SetStateAction<FileItem[]>>
+}
+
+export function FileUpload({ files, setFiles }: FileUploadProps) {
+    // const [files, setFiles] = useState<FileItem[]>([]);
     const [isDragging, setIsDragging] = useState(false);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
