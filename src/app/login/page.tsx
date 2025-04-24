@@ -15,9 +15,9 @@ export default function Login() {
         <div className="flex h-screen w-screen justify-center items-center bg-gradient-to-br from-slate-100 to-slate-300">
             <div>
                 <Card className="flex flex-col justify-between w-100 h-120 bg-white">
-                    <CardHeader>
-                        <CardTitle className="text-2xl mt-4">Login to LockBox</CardTitle>
-                        <CardDescription>Enter your account details to login to your LockBox account.</CardDescription>
+                    <CardHeader className="flex flex-col items-center">
+                        <CardTitle className="text-2xl mt-4">Welcome to LockBox</CardTitle>
+                        <CardDescription className="text-center">Enter your account details to login to your LockBox account.</CardDescription>
                     </CardHeader>
                     <CardContent className="mb-4">
                         <form>
