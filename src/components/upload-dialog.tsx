@@ -6,6 +6,7 @@ import { useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { FileUpload, FileItem } from "./file-upload"
+import FileService from "@/services/file-service"
 
 interface UploadDialogProps {
   open: boolean
@@ -21,7 +22,13 @@ export default function UploadDialog({ open, onOpenChange }: UploadDialogProps) 
     try {
       // Here you would implement your file upload logic
       // You can access the actual File objects through files.map(f => f.file)
-      console.log("Files to upload:", files.map(f => f.file))
+      console.log("Files to upload:", files.map(f => f.file));
+      
+      files.map(f => {
+        const service = new FileService();
+        // TODO: Use the actual user id here.
+        service.uploadFile(f.file, "fake-user-id"); 
+      });
 
       // Close the dialog after successful upload
       onOpenChange(false)
