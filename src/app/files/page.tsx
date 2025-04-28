@@ -2,7 +2,6 @@
 
 import FileGrid from "@/components/file-grid";
 import {Separator} from "@/components/ui/separator";
-import { Input } from "@/components/ui/input"
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -13,14 +12,29 @@ import {
 } from "@/components/ui/breadcrumb"
 import { Vault, File } from "lucide-react";
 import { FileSearch } from "@/components/file-search";
+import { LoadingScreen } from "@/components/loading";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import UploadDialog from "@/components/upload-dialog";
+import { FileService } from "@/services/file-service";
 
 
 export default function FilesPage() {
-    
+
+    const [loading, setLoading] = useState(true);
     const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
+
+    useEffect(() => {
+        const getAllFiles = async () => {
+            const service = new FileService();
+            // TODO: The user id should be fetched from the logged-in user.
+            const data = await service.getAllUserFiles("test-user");
+            console.log("Retrieved files:", data);
+            setLoading(false);
+        }
+
+        getAllFiles();
+    }, []);
     
     const toggleUploadDialog = () => {
         setUploadDialogOpen(!uploadDialogOpen);
@@ -28,6 +42,14 @@ export default function FilesPage() {
     
     const onFileSearch = (query: string) => {
         console.log("file search query submitted: ", query);
+    }
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center min-h-[75vh]">
+                <LoadingScreen text="Getting files..."/>
+            </div>
+        );
     }
     
     return (

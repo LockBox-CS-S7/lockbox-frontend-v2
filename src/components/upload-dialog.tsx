@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { FileUpload, FileItem } from "./file-upload"
-import FileService from "@/services/file-service"
+import { FileService } from "@/services/file-service"
 
 interface UploadDialogProps {
   open: boolean
